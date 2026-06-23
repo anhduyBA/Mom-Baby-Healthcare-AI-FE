@@ -43,7 +43,6 @@ export default function UpgradePage() {
       name: 'Mẹ Hiện Đại ✨',
       price: '99k / tháng',
       features: [
-        'Mở khóa Phác đồ IVF thông minh',
         'Phân tích thực phẩm Gen Z (BR02)',
         'Gợi ý thực đơn dinh dưỡng 7 ngày',
         'Theo dõi kế hoạch tập luyện thai kỳ',

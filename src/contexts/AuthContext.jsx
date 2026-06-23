@@ -27,13 +27,13 @@ export const AuthProvider = ({ children }) => {
 
   const login = (userData, token) => {
     localStorage.setItem("token", token);
-    useAuthStore.getState().setToken(token);
+    useAuthStore.getState().setTokens(token, null, userData);
     setUser(userData);
   };
 
   const logout = () => {
     localStorage.removeItem("token");
-    useAuthStore.getState().clearToken();
+    useAuthStore.getState().logout();
     setUser(null);
   };
 

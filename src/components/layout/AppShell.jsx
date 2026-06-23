@@ -55,20 +55,13 @@ export default function AppShell() {
       });
       items.push({
         label: 'Bé Yêu 🧸',
-        path: '/baby',
+        path: '/baby-nutrition',
         icon: Baby,
         color: 'text-momGreen',
       });
     }
 
     // Common nav items for all stages
-    items.push({
-      label: 'Trợ lý AI',
-      path: '/chat',
-      icon: MessageSquare,
-      color: 'text-momPink',
-    });
-
     items.push({
       label: 'Chẩn đoán AI',
       path: '/symptoms',

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { useProfileStore } from '../../store/profileStore';
 import { fertilityApi } from '../../api/fertilityApi';
 import CycleCalendar from '../../components/fertility/CycleCalendar';
@@ -9,7 +8,6 @@ import toast from 'react-hot-toast';
 
 export default function FertilityPage() {
   const { momProfile, fetchProfile } = useProfileStore();
-  const navigate = useNavigate();
 
   const [selectedMonth, setSelectedMonth] = useState(
     new Date().toISOString().substring(0, 7) // YYYY-MM
@@ -202,35 +200,7 @@ export default function FertilityPage() {
             </div>
           </div>
 
-          {/* IVF Timeline Banner */}
-          <div className="bg-white dark:bg-gray-800 p-5 rounded-2xl border border-pink-100/50 dark:border-gray-700 shadow-sm space-y-4">
-            <div>
-              <h3 className="text-xs font-bold text-gray-550 dark:text-gray-400 uppercase tracking-wider">
-                Kế Hoạch IVF / Thụ Tinh Nhân Tạo
-              </h3>
-              <p className="text-[10px] text-gray-400 font-semibold mt-0.5">
-                Thiết lập phác đồ tiêm kích rụng trứng và chuyển phôi
-              </p>
-            </div>
 
-            <TierGate requiredTier="MomHienDai">
-              <div className="p-4 bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl border border-pink-100/50 text-center">
-                <span className="text-2xl">⚡</span>
-                <h4 className="text-xs font-bold text-gray-800 mt-2">
-                  Lập Phác Đồ IVF Thông Minh
-                </h4>
-                <p className="text-[10px] text-gray-500 mt-1 mb-4 leading-relaxed font-semibold">
-                  Tạo lộ trình đồng bộ lịch tiêm thuốc kích trứng, siêu âm kiểm nang, chọc hút trứng và chuyển phôi theo ngày chuẩn y tế.
-                </p>
-                <button
-                  onClick={() => navigate('/fertility/ivf')}
-                  className="px-4 py-2 bg-gradient-to-r from-momPurple to-momPink text-white text-xs font-bold rounded-xl shadow-md hover:scale-105 active:scale-95 transition-all duration-300"
-                >
-                  Bắt đầu lập phác đồ
-                </button>
-              </div>
-            </TierGate>
-          </div>
 
         </div>
 

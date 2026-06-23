@@ -85,16 +85,23 @@ export const useAuthStore = create((set, get) => ({
 
     const response = await api.post(`/api/user-profile/upgrade?tier=${tierVal}`);
     if (response.data.isSuccess && response.data.data) {
-      const userRes = response.data.data;
+      const authRes = response.data.data;
+      const userRes = authRes.user;
+      const token = authRes.token;
+      const refreshToken = authRes.refreshToken;
       const tierName = mapTier(userRes.tier);
 
       const currentUser = get().user || {};
       const updatedUser = { ...currentUser, id: userRes.id, email: userRes.email, tier: userRes.tier };
       
+      localStorage.setItem('token', token);
+      localStorage.setItem('refreshToken', refreshToken);
       localStorage.setItem('user', JSON.stringify(updatedUser));
       localStorage.setItem('tier', tierName);
 
       set({
+        token,
+        refreshToken,
         user: updatedUser,
         tier: tierName,
       });

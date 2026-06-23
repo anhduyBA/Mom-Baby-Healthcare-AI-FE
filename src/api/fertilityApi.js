@@ -21,17 +21,5 @@ export const fertilityApi = {
   getOvulationToday: async () => {
     const response = await api.get('/api/fertility/ovulation-today');
     return response.data;
-  },
-
-  createIvfTimeline: async (ivfStartDate, protocol = 'long') => {
-    const response = await api.post('/api/fertility/ivf-timeline', {
-      ivfStartDate,
-      protocol
-    }, {
-      headers: {
-        'x-required-tier': 'MomHienDai'
-      }
-    });
-    return response.data;
   }
 };

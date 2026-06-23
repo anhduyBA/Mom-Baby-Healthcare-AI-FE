@@ -12,7 +12,6 @@ import LoginPage from "./pages/auth/LoginPage";
 import RegisterPage from "./pages/auth/RegisterPage";
 import JourneySetupPage from "./pages/onboarding/JourneySetupPage";
 import FertilityPage from "./pages/fertility/FertilityPage";
-import IvfTimelinePage from "./pages/fertility/IvfTimelinePage";
 import PregnancyDashPage from "./pages/pregnancy/PregnancyDashPage";
 import MealPlanPage from "./pages/pregnancy/MealPlanPage";
 import ExercisePlanPage from "./pages/pregnancy/ExercisePlanPage";
@@ -35,7 +34,6 @@ import SymptomPage from "./pages/SymptomPage";
 import SymptomHistoryPage from "./pages/SymptomHistoryPage";
 import SymptomDetailPage from "./pages/SymptomDetailPage";
 import DailyMonitoringPage from "./pages/DailyMonitoringPage";
-import ChatPage from "./pages/ChatPage";
 
 import ProtectedRoute from "./components/ProtectedRoute";
 import AppShell from "./components/layout/AppShell";
@@ -79,7 +77,6 @@ function AppContent() {
           
           {/* Fertility (Module 1) */}
           <Route path="/fertility" element={<FertilityPage />} />
-          <Route path="/fertility/ivf" element={<IvfTimelinePage />} />
 
           {/* Pregnancy (Module 2) */}
           <Route path="/pregnancy" element={<PregnancyDashPage />} />
@@ -92,6 +89,7 @@ function AppContent() {
           <Route path="/postpartum/voice" element={<VoiceJournalPage />} />
 
           {/* Baby Nutrition (Module 4) */}
+          <Route path="/baby" element={<Navigate to="/baby-nutrition" replace />} />
           <Route path="/baby-nutrition" element={<BabyDashPage />} />
           <Route path="/baby-nutrition/menu" element={<BabyMenuPage />} />
           <Route path="/baby-nutrition/growth" element={<GrowthChartPage />} />
@@ -108,7 +106,6 @@ function AppContent() {
           <Route path="/symptoms/:id" element={<SymptomDetailPage />} />
           <Route path="/symptom-entry" element={<SymptomPage />} />
           <Route path="/daily-monitoring" element={<DailyMonitoringPage />} />
-          <Route path="/chat" element={<ChatPage />} />
         </Route>
       </Routes>
     </>

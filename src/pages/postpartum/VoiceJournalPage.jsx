@@ -78,9 +78,18 @@ export default function VoiceJournalPage() {
 
   const stopRecording = () => {
     if (mediaRecorderRef.current && recording) {
-      mediaRecorderRef.current.stop();
-      // Stop all tracks in stream
-      mediaRecorderRef.current.stream.getTracks().forEach((track) => track.stop());
+      try {
+        mediaRecorderRef.current.stop();
+      } catch (err) {
+        console.warn('Failed to stop media recorder:', err);
+      }
+      try {
+        if (mediaRecorderRef.current.stream) {
+          mediaRecorderRef.current.stream.getTracks().forEach((track) => track.stop());
+        }
+      } catch (err) {
+        console.warn('Failed to stop stream tracks:', err);
+      }
       setRecording(false);
     }
   };
@@ -185,11 +194,11 @@ export default function VoiceJournalPage() {
                 {/* Visual state button */}
                 <div className="relative flex items-center justify-center">
                   {recording && (
-                    <span className="absolute w-24 h-24 rounded-full bg-momPurple-light/40 animate-ping"></span>
+                    <span className="absolute w-24 h-24 rounded-full bg-momPurple-light/40 animate-ping pointer-events-none"></span>
                   )}
                   <button
                     onClick={recording ? stopRecording : startRecording}
-                    className={`w-20 h-20 rounded-full flex items-center justify-center text-white shadow-lg transition-all active:scale-95 duration-300 ${
+                    className={`relative z-10 w-20 h-20 rounded-full flex items-center justify-center text-white shadow-lg transition-all active:scale-95 duration-300 ${
                       recording 
                         ? 'bg-red-500 ring-4 ring-red-200' 
                         : 'bg-gradient-to-tr from-momPink to-momPurple hover:shadow-xl'
