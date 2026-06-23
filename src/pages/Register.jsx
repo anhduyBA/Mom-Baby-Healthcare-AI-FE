@@ -61,6 +61,7 @@ export default function Register() {
     try {
       const dataToSend = {
         ...registrationData,
+        fullName: registrationData.name,
         diseaseTags: registrationData.diseaseTags
           ? registrationData.diseaseTags.split(",").map((d) => d.trim())
           : [],
