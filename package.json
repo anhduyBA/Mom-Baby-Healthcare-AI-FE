@@ -20,7 +20,6 @@
     "@tailwindcss/typography": "^0.5.19",
     "@tailwindcss/vite": "^4.1.17",
     "axios": "^1.13.2",
-    "backend": "file:../LifeBalance_AI_BE",
     "chart.js": "^4.5.1",
     "jwt-decode": "^4.0.0",
     "lucide-react": "^0.554.0",
