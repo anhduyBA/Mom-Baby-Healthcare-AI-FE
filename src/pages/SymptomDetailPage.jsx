@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { useSymptomStore } from "../store/symptomStore";
-import AnalysisResult from "../components/symptom/AnalysisResult";
+import AnalysisResult from "../components/Symptom/AnalysisResult";
 import { ChevronLeft, Calendar, FileText, RefreshCw, AlertCircle } from "lucide-react";
 
 export default function SymptomDetailPage() {
